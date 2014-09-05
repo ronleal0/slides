@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url('/fonts/../fonts/OpenSans-Regular.ttf?1409838732') format('truetype');
+}
+/* line 4, ../sass/style.scss */
+h1, h2, h3, h4, h5, h6, p, a, li {
+  font-family: "Open Sans" !important;
+}
+
+/* line 7, ../sass/style.scss */
+pre {
+  padding: 1% !important;
+  font-size: 20px !important;
+}
+
+/* line 14, ../sass/style.scss */
+.code {
+  font-family: courier, Monaco, 'Andale Mono', monospace;
+  background-color: #038543;
+  color: white;
+  padding: 0px 10px;
+}
+
+/* line 20, ../sass/style.scss */
+.notes {
+  display: none;
+}
+
+/* line 23, ../sass/style.scss */
+h2 {
+  padding-top: 0px !important;
+}
+
+/* line 26, ../sass/style.scss */
+section.slide {
+  padding-top: 0.5em !important;
+}
+
+/* line 30, ../sass/style.scss */
+.output {
+  background: #1E1E1E;
+  padding: 15px;
+  display: block;
+  font-family: courier;
+  color: #74FF96;
+}
+/* line 31, ../sass/style.scss */
+.output:before {
+  content: "OUTPUT";
+  margin-bottom: 15px;
+  display: block;
+}
+/* line 43, ../sass/style.scss */
+.output p {
+  font-family: courier !important;
+  color: #74FF96;
+}

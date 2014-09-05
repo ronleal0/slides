@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Basic Input and Output</title>
+
+  <meta name="description" content="Presentation on Basic Input and Ouput">
+  <meta name="author" content="Ron Leal">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <!-- Core and extension CSS files -->
+  <link rel="stylesheet" media="screen" href="core/deck.core.css">
+  <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/style/web-2.0.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="core/print.css">
+
+  <script src="modernizr.custom.js"></script>
+
+  <link rel="stylesheet" href="extensions/prism/prism.css">
+  <script src="extensions/prism/prism.js"></script>
+</head>
+
+<body>
+  <div class="deck-container">
+
+    <!-- Begin slides -->
+    <section class="slide" id="title-slide">
+      <h1>Basic I/O</h1>
+      <!-- This is a comment -->
+    </section>
+    
+    <!-- Begin slides -->
+    <section class="slide" id="title-slide">
+
+      <h2>cin & cout</h2>
+      <p><span class="code">cout</span> is used for output. It uses the insertion opertaor <span class="code"><<</span></p>
+      <pre class="line-numbers">
+        <code class="language-c">
+          cout << "Hello World";  // prints string literal "Hello World"
+          cout << 123;      // prints integer constant 123
+          cout << x;        // prints the value of the variable x
+        </code>
+      </pre>
+
+      <p>These two ouputs has different results</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+            cout << "hello";    // prints the string literal "hello"
+            cout << hello;      // prints the value of the variable hello
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide" id="chaining">
+      <h2>Chaining</h2>
+      <p>Use multiple <span class="code"><<</span> to do chaining</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+          cout << "Hello" << " my name is " << "Roberto.";
+        </code>
+      </pre>
+    
+      <p>You can mix literals and variables in CHAINING</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+          string name = "Roberto";  
+          cout << "Hello" << " my name is " << name;      //prints "Hello my name is Roberto"
+        </code>
+      </pre>
+      <p>
+        <span class="code">cout</span> does not add a new line automatically. Add a new line by chaining <span class="code"><< endl</span> or adding <span class="code">\n</span> within the string.
+      </p>
+      <pre class="line-numbers">
+        <code class="language-c">
+        cout << "This is first line" << endl;     // using endl
+        cout << "This is second line\n";        // using newline character
+        cout << 123 << '\n';              // chaining with newline character
+        cout << "One line . \n Another Line";     // using newline within string
+        </code>
+      </pre>  
+    </section>
+
+    <section class="slide" id="cin">
+      <h2>cin</h2>
+      <p><span class="code">cin</span> is used to extract data from an input and store that data into a variable. It uses the extraction operator <span class="code">>></span></p>
+      <pre class="line-numbers">
+        <code class="language-c">
+          int age;
+          cin >> age;
+        </code>
+      </pre>
+      <p>
+        <span class="code">cin</span> uses the datatype of the variable after <span class="code">>></span>. In the above example, <span class="code">cin</span> is expecting an <span class="code">int</span>. If the input datatype is different, <span class="code">cin</span> will fail.
+      </p>
+      <p>cin can also be chained in one extraction of more than one data in a single statement</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+          cin >> a >> b;
+
+          //also the same as 
+          cin >> a;
+          cin >> b;
+        </code>
+      </pre>
+    </section>
+
+
+    <section class="slide" id="cinAndStrings">
+      <h2>cin and strings</h2>
+      <p><span class="code">cin</span> can be used to get strings of characters, but only gets those before a space.</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+        string name;  //Roberto Rodriguez
+        cin >> name;  
+        cout << name; //Roberto
+        </code>
+      </pre>
+
+      <h3>getline()</h3>
+      <p>this function gets the entire line from input.</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+          //format
+          getline(cin, variable);
+        </code>
+      </pre>
+      <pre class="line-numbers">
+        <code class="language-c">
+          string name;
+          getline(cin, name);
+
+          //invalid. getline is for strings only
+          float grades;
+          getline(cin, grades);
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide" id="moreongetline">
+      <h2>More on getline()</h2>
+      <p>Notice how the variable name is used multiple times in getline? The second call will just replace whatever is the existing value of <span class="code">name</span></p>
+      <pre class="line-numbers">
+        <code class="language-c">
+          string name;
+          cout << "What is your name : " << endl;
+          getline(cin, name);
+
+          cout << "What is your nickname : " << endl;
+          getline(cin, name);
+        </code>
+      </pre>  
+    </section>
+
+     <section class="slide" id="stringstream">
+      <p>
+        <span class="code">stringstream()</span> parses a value from a string depending on the datatype of the variable it is storing values to. <br>
+        <span class="code">#include < sstream ></span> must be added at the top
+      </p>
+      
+      <pre class="line-numbers">
+        <code class="language-c">
+          string myString;
+          float price;
+
+          cout << "Enter price";    //user enters 50
+          getline(cin, myString);   //50 is stored in mystring, myString = "50";
+          stringstream(myString) >> price;
+        </code>
+      </pre>
+      <p>
+        When user enters 50, 50 will then be stored in the variable <span class="code">myString</span> as a string. <span class="code">stringstream</span> will then parse <span class="code">myString</span> and will examine if there is a valid value as float. That value will then be stored to the variable <span class="code">price</span> as a normal float.
+      </p>
+    </section>
+  
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-role="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+  </div>
+
+<script src="jquery.min.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+  $.deck('.slide');
+});
+
+(function($, deck, undefined) {
+    if(!console || !console.log){
+        return;
+    }
+    $(document).bind('deck.change', function(e, from, to) {
+        console.log(Array(30).join("\n")); // Flush console with a bunch of newlines
+        var notes = $[deck]('getSlide', to).find('.notes');
+        if(notes.length){
+            console.log(notes.text());
+        }
+    });
+})(jQuery, 'deck');
+</script>
+
+</body>
+</html>

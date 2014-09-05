@@ -1,0 +1,47 @@
+@import "compass";
+$green : #038543;
+@include font-face("Open Sans", font-files("../fonts/OpenSans-Regular.ttf"));
+h1,h2,h3,h4,h5,h6,p,a,li{
+	font-family:'Open Sans'!important;
+}
+pre{
+	padding:1%!important;
+	font-size: 20px!important;
+	
+
+}
+
+.code{
+	font-family: courier, Monaco, 'Andale Mono', monospace;
+	background-color: $green;
+	color: white;
+	padding:0px 10px;
+}
+.notes{
+	display:none;
+}
+h2{
+	padding-top:0px!important;
+}
+section.slide{
+	padding-top:.5em!important;
+}
+
+.output{
+	&:before{
+		content: "OUTPUT";
+		margin-bottom:15px;
+		display: block;
+	}
+	
+	background: #1E1E1E;
+	
+	padding:15px;
+	display:block;
+	font-family: courier;
+	color: #74FF96;
+	p{
+		font-family: courier!important;
+		color: #74FF96;
+	}
+}

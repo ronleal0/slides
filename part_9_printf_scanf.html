@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Basic Input and Output</title>
+
+  <meta name="description" content="Presentation on Basic Input and Ouput">
+  <meta name="author" content="Ron Leal">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <!-- Core and extension CSS files -->
+  <link rel="stylesheet" media="screen" href="core/deck.core.css">
+  <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/style/web-2.0.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="core/print.css">
+
+  <script src="modernizr.custom.js"></script>
+
+  <link rel="stylesheet" href="extensions/prism/prism.css">
+  <script src="extensions/prism/prism.js"></script>
+</head>
+
+<body>
+  <div class="deck-container">
+
+    <!-- Begin slides -->
+    <section class="slide" id="title-slide">
+      <h1>printf and scanf</h1>
+    </section>
+    
+    <section class="slide" id="printf">
+      <p>
+        <span class="code">printf()</span> - print formatted data <br>
+        <span class="code">scanf()</span> - read formatted data
+      </p>
+
+      <h3>Formats</h3>
+      <p>
+        <span class="code">%d or %i</span> - integer <br>
+       <span class="code">%f</span> - float <br>
+       <span class="code">%s</span> - string <br>
+       <span class="code">%c</span> - characters
+      </p>
+
+      <pre class="line-numbers">
+        <code class="language-c">
+          //scanf vs cin
+          scanf("%s", name);
+          cin >> name;
+
+          //printf vs cout
+          printf("%s", name);
+          cout << name << endl;
+        </code>
+      </pre>  
+    </section>
+
+
+    <section class="slide" id="printf">
+      <h2>printf()</h2>
+      <p>
+        format:
+
+        <span style="font-family: courier">printf("control string", arg1, arg2...argN);</span>
+      </p>
+
+      <pre class="line-numbers">
+        <code class="language-c">
+        printf("hello World");    // simply prints string literal
+        printf("%d is greater than %d", 5, 2); // 5 is greater than 2
+        printf("%s is your name", "Roberto");  // Roberto is your name
+        prinft("%c is a letter", 'A');       // A is a letter
+        </code>
+      </pre>  
+
+      <span class="notes">
+        It is ver important that printf has control string.
+      </span>
+    </section>
+    
+    <section class="slide" id="printfexample">
+      <p>Examples of using printf with format</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+        int num = 98765;
+        printf("%d", num);  // 98765
+        printf("%6d", num); // right align [][9][8][7][6][5]
+        printf("%-6d",num); // left align [9][8][7][6][5][]
+        </code>
+      </pre>  
+      <pre class="line-numbers">
+        <code class="language-c">
+        float dec = 98.765;
+        printf("%f", dec);    // 98.765
+        printf("The number is %f", dec);  
+        prinft("%7.3f", dec); // 98.765   
+        prinft("7.2f",dec);   // 98.77   
+        </code>
+      </pre>    
+      <span class="notes">
+        int num = 98765;
+        printf("%d", num);  // 98765
+        printf("%6d", num); // right align [][9][8][7][6][5]
+        printf("%-6d",num); // left align [9][8][7][6][5][]
+
+
+        float dec = 98.765;
+        printf("%f", dec);    // 98.765
+        printf("The number is %f", dec);  // The number is 98.765 (simple concatination)
+        prinft("%7.3f", dec); // 98.765   [][9][8][.][7][6][5]
+        prinft("7.2f",dec);   // 98.77    [][][9][8][.][7][7]  -- rounded off one the second decimal place
+
+      </span>
+    </section>
+
+    <section class="slide" id="anotherprintfexample">
+      <p>more <span class="code">prinft()</span> examples</p>
+      <pre class="line-numbers">
+              <code class="language-c">
+              printf("ITE102 Programming\n\n");   //double newline
+              printf("List of students\n");
+              printf("Juan dela cruz");
+              </code>
+      </pre>     
+      <span class="output">
+        <p>
+          ITE102 Programming <br><br>
+          List of students <br>
+          Juan dela cruz
+        </p>
+      </span>  
+    </section>
+
+    <section class="slide" id="mixeddata">
+      <p>Printing mixed data</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+          printf("%s - string, %d - int, %c - char and %f - float", "string", 80, 'a', 10.5);
+        </code>
+      </pre>
+      <span class="output">
+        <p>string - string, 80 - int, a - char, 10.5 - float</p>
+      </span>
+    </section>
+
+
+  <section class="slide" id="scanf">
+    <h2>scanf()</h2>
+    <p>
+      format: <br>
+      <span style="font-family:courier">scanf("control string", &variablename)</span> <br>
+
+      <br>
+      the <span class="code">&</span> sign is necessary before the variable name. This means we are storing the value on the memory address, rather than on the variable.
+    </p>
+    <pre class="line-numbers">
+      <code class="language-c">
+      scanf("%d", &num);    // the same as cin >> num
+      scanf("%d %d", &a, &b)  // multiple storage in a single line like: cin >> a; cin >> b;
+      scanf("%c %c %c", &a, %b) // The last %c will be ignored
+      scanf("%s %c %d %lf", &varString, &varChar, &varInteger, &varDouble); // reading mixed data
+      </code>n
+    </pre>  
+  </section>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-role="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+  </div>
+
+<script src="jquery.min.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+  $.deck('.slide');
+});
+
+(function($, deck, undefined) {
+    if(!console || !console.log){
+        return;
+    }
+    $(document).bind('deck.change', function(e, from, to) {
+        console.log(Array(30).join("\n")); // Flush console with a bunch of newlines
+        var notes = $[deck]('getSlide', to).find('.notes');
+        if(notes.length){
+            console.log(notes.text());
+        }
+    });
+})(jQuery, 'deck');
+</script>
+
+</body>
+</html>
