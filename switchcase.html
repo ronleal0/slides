@@ -105,7 +105,23 @@
    </section>
 
 
-
+  <section class="slide" id="notvalid">
+    <p>case label expressions must be unique values</p>
+    <pre class="line-numbers">
+            <code class="language-c">
+            switch(x)
+            {
+              case 4:
+                statement;
+                break;
+              case 4:         //illegal because it is not unique
+                statement;
+                break;
+              default:
+            }
+            </code>
+          </pre>    
+  </section>
 
 
 

@@ -55,3 +55,27 @@ section.slide {
   font-family: courier !important;
   color: #74FF96;
 }
+
+/* line 48, ../sass/style.scss */
+body {
+  position: relative !important;
+}
+
+/* line 51, ../sass/style.scss */
+.toc {
+  position: absolute;
+  background: #333;
+  color: white;
+  padding: 15px;
+  top: 50%;
+  z-index: 100000;
+}
+/* line 59, ../sass/style.scss */
+.toc li {
+  list-style: none;
+}
+/* line 62, ../sass/style.scss */
+.toc li span {
+  font-style: italic;
+  font-size: 13px;
+}

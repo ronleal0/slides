@@ -150,7 +150,20 @@
              </code>
            </pre>     
    </section>
+   <section class="slide" id="dangling">
+     <p>Ambiguous dangling else</p>
+     <pre class="line-numbers">
+             <code class="language-c">
+              if (nX > 10)
 
+                if (nX < 20)
+                    cout << nX << "is between 10 and 20" << endl;
+         
+                else
+                    cout << nX << "is greater than 20" << endl;
+             </code>
+           </pre>    
+   </section>
    <section class="slide" id="ternaryoperation">
      <h2>Ternary Operation</h2>
      <p>Ternary operation is only applicable for simple condition. 1 statement per block</p>
@@ -234,6 +247,7 @@
 <script>
 $(function() {
   $.deck('.slide');
+  //$(".toc").toggle();
 });
 
 (function($, deck, undefined) {
@@ -249,6 +263,22 @@ $(function() {
     });
 })(jQuery, 'deck');
 </script>
+<!-- <div class="toc">
+  <h4>Table of contents</h4>
+     <ul>
+      <li><a href="">1. Introduction <span class="na">not available yet</span></a></li>
+      <li><a href="">2. Classification of computers <span class="na">not available yet</span></a></li>
+      <li><a href="">3. Components of computers <span class="na">not available yet</span></a></li>
+      <li><a href="">4. Number system <span class="na">not available yet</span></a></li>
+      <li><a href="">5. Algorithm & Flowchart <span class="na">not available yet</span></a></li>
+      <li><a href="">6. Introduction to C programming language <span class="na">not available yet</span></a></li>
+      <li><a href="">7. Operators and expressions <span class="na">not available yet</span></a></li>
+      <li><a href="basicio.html">8. Basic I/O </a></li>
+      <li><a href="printfscanf.html">8b. Printf and Scanf</a>
+      <li><a href="ifelse.html">9a. If else </a></li>
+      <li><a href="switchcase.html">9b. Switch Case <span class="na">not available yet</span></a></li>
 
+     </ul>
+</div> -->
 </body>
 </html>

@@ -45,3 +45,23 @@ section.slide{
 		color: #74FF96;
 	}
 }
+body{
+	position: relative!important;
+}
+.toc{
+	position: absolute;
+	background: #333;
+	color: white;
+	padding: 15px;
+	top:50%;
+	z-index: 100000;
+
+	li{
+		list-style:none;
+
+		span{
+			font-style:italic;
+			font-size:13px;
+		}
+	}
+}
