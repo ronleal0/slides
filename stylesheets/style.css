@@ -79,3 +79,23 @@ body {
   font-style: italic;
   font-size: 13px;
 }
+
+/* line 69, ../sass/style.scss */
+.slide img {
+  padding: 1% !important;
+}
+
+/* line 73, ../sass/style.scss */
+.left {
+  float: left;
+}
+
+/* line 76, ../sass/style.scss */
+.right {
+  float: right;
+}
+
+/* line 80, ../sass/style.scss */
+.hide {
+  display: none;
+}

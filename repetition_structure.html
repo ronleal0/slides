@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Basic Input and Output</title>
+
+  <meta name="description" content="Presentation on Basic Input and Ouput">
+  <meta name="author" content="Ron Leal">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <!-- Core and extension CSS files -->
+  <link rel="stylesheet" media="screen" href="core/deck.core.css">
+  <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/style/web-2.0.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="core/print.css">
+
+  <script src="modernizr.custom.js"></script>
+
+  <link rel="stylesheet" href="extensions/prism/prism.css">
+  <script src="extensions/prism/prism.js"></script>
+  <style type="text/css">
+    .na{
+      font-size: 12px;
+      font-style: italic;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="deck-container">
+
+    <section class="slide" id="repetition">
+      <h1>Repetition Structure 
+        <br><small>(loops)</small></h1>
+
+    </section>
+    
+    <!-- Begin slides -->
+    
+    <section class="slide" id="intro">
+      <p><span class="code">iteration</span> - The act of repeating something. Or the act of looping into somthing.</p>
+      <p>2 Loop structures:</p>
+      <ul>
+        <li>Condition is tested first (while & for loop)</li>
+        <li>Condition is tested later (do while)</li>
+      </ul>
+    </section>
+
+
+    <section class="slide" id="while">
+      <h2>while loop</h2>
+      <p></p>
+      <section>
+        <img class="left" src="img/while.png" alt="">
+      </section>
+      <pre class="line-numbers">
+        <code class="language-c">
+          // set a counter variable
+          int counter = 0;
+          
+          //test a condition
+          while(counter < 10)
+          {
+            // if condition is met, do these processes
+            cout << counter << " " ;
+
+            //increment
+            counter++;
+          }
+          printf("Done!");
+
+          //output: 0 1 2 3 4 5 6 7 8 9 Done!
+        </code>
+      </pre>
+     </section>
+
+    <section class="slide" id="infinite">
+      <p>if the expression always evaluates to true, the while loop will execute forever. This is called an <strong>infinite loop</strong>. </p>
+      <pre class="line-numbers">
+        <code class="language-c">
+          int counter = 0;
+
+          while(counter < 1){
+              cout  << counter;
+          }
+        </code>
+      </pre>
+      <pre class="line-numbers">
+        <code class="language-c">
+         while(1){
+            // this loop will execute forever
+          }
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide" id="nestedloops">
+      <p>It is also possible to nest loops within another loop</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+         int outerCounter = 1;
+
+          // first loop
+          while(outerCounter <= 5)
+          {
+              int innerCounter = 1;
+
+              //second loop
+              while(innerCounter <= outerCounter)
+              {
+                cout << innerCounter++;
+              }
+              cout << endl;
+              outerCounter++;
+          }
+        </code>
+      </pre>
+      <section class="output">
+        1 <br>
+        12 <br>
+        123 <br>
+        1234 <br>
+        12345 
+      </section>
+    </section>
+
+
+      <section class="slide" id="while">
+        <h2>do-while loop</h2>
+        <p></p>
+        <section>
+          <img class="left" src="img/dowhile.png" alt="">
+        </section>
+        <p>
+          one thing about <span class="code">while</span> loop is that if the condition is <em>false</em>, the while loop may not execute at all. Sometimes, that is not the kind of behavior we want. 
+        </p>
+        <p>
+          <span class="code">do while</span> loop enables a statement to be processed once before evaluating a condition
+        </p>
+        <p>
+          <pre class="line-numbers">
+            <code class="language-c">
+              // format
+
+              do{
+                // statement
+              }while(condition)
+            </code>
+          </pre>
+        </p>
+     </section>
+    
+    <section class="slide" id="example">
+      <p>this example</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+          int choice;
+
+          do{
+            cout << "\tPlease select an option: " << endl;
+            cout << "\t1 - Addition" << endl;
+            cout << "\t2 - Subtraction" << endl;
+            cout << "\t3 - Multiplication" << endl;
+            cout << "\t4 - Division" << endl;
+            cout << "\t5 - Exit" << endl;
+            cin >> choice;
+
+            if(choice == 5){
+              cout << "You EXITED" << endl;
+              return 0;
+
+            }
+          }while(choice > 0 &&  choice < 5);
+        </code>
+      </pre>
+    </section>
+  
+    <section class="slide" id="test">
+      <p>Try to create a do while loop that will do this:</p>
+      <section class="output">
+        Enter the Number :6 <br>
+        Execute this 1 time <br>
+        Execute this 2 time <br>
+        Execute this 3 time <br>
+        Execute this 4 time <br>
+        Execute this 5 time <br>
+        Execute this 6 time
+      </section>
+
+      <span class="notes">
+        
+             // Variable Declaration
+             int a;
+
+             // Get Input Value
+             cout<<"Enter the Number :";
+             cin>>a;
+
+             int counter = 1;
+             //Do while Loop Block
+             do
+             {
+                 cout<<"Execute Do While "<< counter <<" time"<<endl;
+                 counter++;
+             }while (counter <= a);
+
+          
+      </span>
+    </section>
+
+
+  <section class="slide" id="for">
+    <h2>for loop</h2>
+    <p>
+      The <span class="code">for loop</span> is ideal when we know exactly how many times we need to iterate, because it lets us easily declare, initialize, and change the value of loop variables after each iteration.
+    </p>
+    <pre class="line-numbers">
+      <code class="language-c">
+        // basic syntax
+
+        for(initialization, condition, incrementation){
+            statements
+        }
+      </code>
+    </pre>
+    <p>
+      <span class="code">initialization</span> consists of a variable declaration plus assignement. <br>
+      <span class="code">condition</span> - if evaluates to <em>false</em>, the for loop will be terminated. If <em>true</em>, the loop is executed
+      <span class="code">incrementation</span> - counter incrementation
+    </p>
+
+  </section>
+
+  <section class="slide" id="forexample">
+    <p>Basic <span class="code">for loop</span> example</p>
+    <pre class="line-numbers">
+      <code class="language-c">
+        for(int i=0; i <=5; i++){
+          cout << "number " << i << endl;
+        }
+      </code>
+    </pre>
+    <section class="output">
+      number 0 <br>
+      number 1 <br>
+      number 2 <br>
+      number 3 <br>
+      number 4 <br>
+      number 5 
+      </section>
+  </section>
+
+
+  <section class="slide" id="forvswhile">
+    <h2>while vs for</h2>
+   <section class="left">
+     <p>while loop</p>
+      <pre class="line-numbers">
+      <code class="language-c">
+        int counter = 0;
+
+        while(counter < 5){
+          cout << counter << endl;    
+          counter++;
+        }
+      </code>
+    </pre>
+   </section>
+    <section class="right">
+      <p>for loop</p>
+      <pre class="line-numbers right">
+      <code class="language-c">
+        for(int counter=0; counter < 5; counter++){
+          cout << counter << endl;        
+        }
+      </code>
+    </pre>
+    </section>
+  </section>
+  
+  <section class="slide" id="onarrays">
+    <p>using <span class="code">for loop</span> on Arrays</p>
+    <pre class="line-numbers">
+      <code class="language-c">
+        char name[10] = "Roberto";
+
+        for(int i=0; i <= sizeof(name); i++){
+          cout << name[i] << endl;
+        }
+      </code>
+    </pre>
+    <section class="output">
+      R <br>
+      o <br>
+      b <br>
+      e <br>
+      r <br>
+      t <br>
+      o
+    </section>
+  </section>
+
+  <section class="slide" id="test1">
+    <p>Write a for loop that will display every other number from 0 - 20</p>
+    <section class="output">
+      0 2 4 6 8 10 12 14 16 18 20
+    </section>
+    <section class="slide">
+     <pre class="line-numbers">
+       <code class="language-c">
+          for(int i = 0; i <= 20; i+=2){
+            printf("%d ",i);
+          }
+       </code>
+     </pre> 
+    </section>
+  </section>
+
+  <section class="slide" id="test2">
+    <p>What is wrong?</p>
+    <pre class="line-numbers">
+      <code class="language-c">
+        for(unsigned int count=9; count >=0; count--){
+          cout << count << endl;
+        }
+      </code>
+    </pre>
+    <section class="notes">
+      This for loop executes as long as count >= 0. In other words, it runs until count is negative. However, because count is unsigned, count can never go negative. Generally, it's a good idea to avoid looping on unsigned variables unless necessary.
+    </section>
+  </section>
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-role="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+  </div>
+
+<script src="jquery.min.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+  $.deck('.slide');
+});
+
+(function($, deck, undefined) {
+    if(!console || !console.log){
+        return;
+    }
+    $(document).bind('deck.change', function(e, from, to) {
+        console.log(Array(30).join("\n")); // Flush console with a bunch of newlines
+        var notes = $[deck]('getSlide', to).find('.notes');
+        if(notes.length){
+            console.log(notes.text());
+        }
+    });
+})(jQuery, 'deck');
+</script>
+
+</body>
+</html>

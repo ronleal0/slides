@@ -124,7 +124,33 @@
   </section>
 
 
+  <section class="slide" id="break">
+    <h2>break</h2>
+    <p><span class="code">break</span> statement tells the compiler that we are done with a particular switch, and execution continues with the statement after the end of the switch block</p>
 
+    <pre class="line-numbers">
+      <code class="language-c">
+        int x = 1;
+        switch(x)
+        {
+          case 1:
+            printf("This is case 1\n");   // no break statement
+
+          case 2:
+            printf("This is case 2\n");
+            break;
+          default:
+            printf("This is the default\n");
+
+        }
+      </code>
+    </pre>
+
+    <div class="output">
+      This is case 1 <br>
+      This is case 2
+    </div>
+  </section>
 
 
 
