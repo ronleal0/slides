@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Functions</title>
+
+  <meta name="description" content="Presentation on Basic Input and Ouput">
+  <meta name="author" content="Ron Leal">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <!-- Core and extension CSS files -->
+  <link rel="stylesheet" media="screen" href="core/deck.core.css">
+  <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/style/web-2.0.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="core/print.css">
+
+  <script src="modernizr.custom.js"></script>
+
+  <link rel="stylesheet" href="extensions/prism/prism.css">
+  <script src="extensions/prism/prism.js"></script>
+  <style type="text/css">
+    .na{
+      font-size: 12px;
+      font-style: italic;
+      clior: #333;
+    }
+    li{
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="deck-container">
+
+    <!-- Begin slides -->
+    <section class="slide" id="title-slide">
+     <h1>Functions</h1>
+    </section>
+     <section class="slide" id="function">
+      <p><span class="code">function</span> a sequence of statements designed to do a particular job.</p>
+
+      <p>
+        A  <span class="code">function call</span> is an expression which tells the CPU to disrupt the current function and execute another function.
+      </p>
+      <pre class="line-numbers">
+        <code class="language-c">
+        #include <iostream>
+        using namespace std;
+
+        void doPrint(){
+          printf("starting doPrint ()");
+        }
+
+        int main()
+        {
+          cout << "Starting main ()" << endl;
+          doPrint();    // function call
+          cout << "Ending main ()" << endl;
+           
+          return 0;                 
+        }
+
+        // output
+        Starting main () 
+        starting doPrint () 
+        Ending main ()
+        </code>
+      </pre>    
+           
+    </section>
+
+    <section class="slide" id="format">
+      <h2>function definition</h2>
+      <pre class="line-numbers">
+        <code class="language-c">
+        [return datatype] functionName(argumentlist)
+        {
+          local-variables
+          statement
+          return value
+        }
+        
+        // this function is expecting an 'int' return type and accepts 2 integers as parameters/arguments
+        int addTwoInts(int a, int b){
+          int result = a + b;
+          return result;
+        }
+        </code>
+      </pre>    
+    </section>
+    
+    <section class="slide" id="useafunction">
+      <p>Using a function (calling a function)</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+          // simply invoking the function and provide required parameters
+          addTwoInts(5,6);
+          
+          // assign the return value to a variable
+          int sum = addTwoInts(1,1);
+
+          // This will return error. Function has an 'int' return type which is stored on a 'float' variable
+          float sum = addTwoInts(3,4);
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide" id="function">
+      <p><span class="code">function</span> a sequence of statements designed to do a particular job.</p>
+
+      <p>
+        A  <span class="code">function call</span> is an expression which tells the CPU to disrupt the current function and execute another function.
+      </p>
+      <pre class="line-numbers">
+        <code class="language-c">
+        #include <iostream>
+        using namespace std;
+
+        void doPrint(){
+          printf("starting doPrint ()");
+        }
+
+        int main()
+        {
+          cout << "Starting main ()" << endl;
+          doPrint();    // function call
+          cout << "Ending main ()" << endl;
+           
+          return 0;                 
+        }
+
+        // output
+        Starting main () 
+        starting doPrint () 
+        Ending main ()
+        </code>
+      </pre>    
+           
+    </section>
+    
+    <section class="slide" id="multipletimes">
+      <p>Functions can be called multiple times</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+        #include <iostream>
+        using namespace std;
+
+        void doPrint(){
+          printf("starting doPrint ()");
+        }
+
+        int main()
+        {
+          cout << "Starting main ()" << endl;
+          doPrint();    // multiple function call
+          doPrint();    // multiple function call
+          doPrint();    // multiple function call
+          cout << "Ending main ()" << endl;
+           
+          return 0;                 
+        }
+
+        // output
+        Starting main () 
+        starting doPrint () 
+        starting doPrint () 
+        starting doPrint () 
+        Ending main ()
+        </code>
+      </pre>    
+    </section>
+
+    <section class="slide" id="returnvalue">
+      <h2>Return Value</h2>
+      <p>
+        Functions you write can return a single value to their caller as well. We do this by changing the return type of the function in the function’s declaration. A return type of void means the function does not return a value. A return type of int means the function returns an integer value to the caller.
+      </p>  
+      <pre class="line-numbers">
+        <code class="language-c">
+        // int means the function returns an integer to the caller
+        int Return4(){
+          return 4;
+        }
+
+        // void means the function does not return anything
+        void ReturnNothing(){
+          cout << "Dont return anything" << endl;
+        }
+        </code>
+      </pre>    
+    </section>
+
+    <section class="slide" id="param">
+      <h2>Parameters</h2>
+      <p>allow caller to pass information to a function.</p>
+      <p>Parameters are considered variables that are local to the function</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+        // int x and y are the parameters
+        int add(int x, int y){
+        return x + y;
+        }
+
+        int main(){
+          cout << add(4,5) << endl;
+        }
+        </code>
+      </pre>    
+    </section>
+
+    <section class="slide" id="localvar">
+      <h2>Local variables</h2>
+      <p>Variables which are defined in a function can only be used within that function. This type of variables is known as local variable.
+</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+        void displayLine(int lineNum) {
+          int i;
+          for (i = 0; i < lineNum; i++)
+            cout<<"#########\n”;
+        }
+        </code>
+      </pre>    
+    </section>
+
+    <section class="slide" id="whatiswrong">
+      <p>What is wrong with this?</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+        void multiply(int x, int y)
+        {
+            return x * y;
+        }
+         
+        int main()
+        {
+            cout << multiply(4, 5) << endl;
+            return 0;
+        }
+        </code>
+      </pre>    
+      <p class="slide">the return type is <span class="code">void</span> so it should not return anything</p>
+    </section>
+
+    <section class="slide" id="whatiswrong">
+      <p>What is wrong with this?</p>
+      <pre class="line-numbers">
+        <code class="language-c">
+        int multiply(int x, int y)
+        {
+            int product = x * y;
+        }
+         
+        int main()
+        {
+            cout << multiply(4, 5) << endl;
+            return 0;
+        }
+        </code>
+      </pre>    
+      <p class="slide">The function should <strong>return</strong> something</p>
+    </section>
+    <!-- Begin slides -->
+    
+    <section class="slide" id="whyusefunctions">
+      <h2>Why use functions?</h2>
+      <ul>
+        <li>1. Code Reuse</li>
+        <li>2. Simplify program structure</li>
+        <li>3. Simplify Testing</li>
+        <li>4. Parameterization</li>
+      </ul>
+    </section>
+  
+
+  <section class="slide" id="createafunction">
+    <p>Write function that will do the following:</p>
+    <ul>
+      <li>- Convert any int value to positive</li>
+      <!-- <li>- Calculate the area of a circle based on a radius</li> -->
+    </ul>
+
+    <pre class="line-numbers">
+      <code class="language-c">
+        int main(){
+            
+            cout << positivize(-25);
+
+        }
+
+        // function declaration
+        int positivize(int number){
+          // if it is negative number, multiply it by -1
+          if(number < 0){
+            return number * -1;
+          }
+          // otherwise, just return the number
+          else{
+            return number;
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section class="slide" id="constantparameters">
+    <h2>Constant Parameters</h2>
+    <pre class="line-numbers">
+      <code class="language-c">
+        // function with constant parameters
+        float average(const float value1, const float value2){
+          float sum, ave;
+          sum = value1 + value2;
+          ave = sum / 2;
+          return ave;
+        }
+      </code>
+    </pre>
+    <p>constant parameters are essentially values that dont actually change within the scope of the function</p>
+  </section>
+
+  <section class="slide" id="declarationvsdefinition">
+    <p>function definition vs function declaration</p>
+    <p><strong><em>function definition</em></strong> is the complete creation of function prototype. It includes the header and the body of the function. <strong><em>function declaration</em></strong> is just a normal invoking of the function which includes return type and the identifier (name  of the function)</p>
+    <pre class="line-numbers">
+      <code class="language-c">
+       // function declaration
+       int add();
+  
+       int main(){
+          add(1,1);
+
+          return 0;
+        }
+
+        // function definition
+        int add(int num1, num2){
+          return num1 + num2;
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section class="slide" id="dedicationofduty">
+    <h3>Dedication of Duty</h3>
+    <p> As much as possible, a function should only do a singular task and no more. </p>
+    <pre class="line-numbers">
+      <code class="language-c">
+        // function to get average of 2 values
+        float average(float value1, float value2)
+        {
+          float sum,ave;
+
+          sum = value1 + value2;
+          ave = sum/2;
+          return ave;
+        }
+      </code>
+    </pre>
+    <p>... code above can still be broken down</p>
+    <pre class="line-numbers">
+      <code class="language-c">
+        float getSum(float value1, float value2)
+        {
+            return value1 + value2;
+        }
+
+        float average(float value1, float value2)
+        {
+          return getSum(value1, value2)/2;
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section class="slide" id="defaultvalue">
+    <p>Sometimes you need to setup a default parameter in case the argument is not provided</p>
+    <pre class="line-numbers">
+      <code class="language-c">
+        // function declaration
+        void print_Given_Number(float number = 5);
+
+        int main(){
+
+          print_Given_Number(3); // will print 3
+          print_Given_Number(2); // will print 2
+          print_Given_Number(1); // will print 1
+          print_Given_Number(); // will print  5 because the default value is 5
+
+          return 0;
+        }
+
+        // function definition
+        void print_Given_Number(float number){
+          cout << number << endl;
+        }
+      </code>
+    </pre>
+  </section>
+  
+  <section class="slide" id="precedingdefaults">
+    <p>If a parameter has a default value, the next parameters should also have a default value</p>
+    <pre class="line-numbers">
+      <code class="language-c">
+        int add(int a = 5, int b = 2);    // will work
+        int add(int a, int b = 5);         // will work
+        int add(int a = 5, int b);         // will not work
+      </code>
+    </pre>
+  </section>
+
+  <section class="slide" id="functionoverloading">
+    <h3>Function Overloading</h3>
+    <p>
+      Function overloading allows for a multiple functions with the same name but have different type and/or numbers of parameters
+    </p>
+    <pre class="line-numbers">
+      <code class="language-c">
+        float average(int a, int b);
+        float average(float a, float b);
+        char average(char a, char b);
+        float average(float a, float b, float c);
+      </code>
+    </pre>
+
+    <div class="code slide">
+      average(11.0,3.1,5.3);
+    </div>
+     <div class="code slide">
+      average(t,q); 
+    </div>
+  </section>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- deck.navigation snippet -->
+    <div aria-rlie="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-rlie="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+  </div>
+
+<script src="jquery.min.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+  $.deck('.slide');
+});
+
+(function($, deck, undefined) {
+    if(!console || !console.log){
+        return;
+    }
+    $(document).bind('deck.change', function(e, from, to) {
+        console.log(Array(30).join("\n")); // Flush conslie with a bunch of newlines
+        var notes = $[deck]('getSlide', to).find('.notes');
+        if(notes.length){
+            console.log(notes.text());
+        }
+    });
+})(jQuery, 'deck');
+</script>
+
+</body>
+</html>
